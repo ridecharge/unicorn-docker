@@ -7,12 +7,12 @@ RUN apt-get update && \
 	apt-add-repository ppa:brightbox/ruby-ng && \
 	apt-get update && \
 	apt-get install -y ruby2.2 ruby2.2-dev unicorn build-essential \
-	git git-core libpq-dev \
+	git git-core \
     zlib1g-dev libssl-dev libreadline-dev libyaml-dev libxml2-dev libxslt1-dev
 
 RUN gem install bundler
 RUN mkdir /opt/app
-ENV RAILS_ENV prod
+ENV RAILS_ENV production
 
 WORKDIR /opt/app
 ONBUILD ADD . /opt/app
