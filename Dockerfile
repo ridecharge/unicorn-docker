@@ -18,4 +18,5 @@ WORKDIR /opt/app
 ONBUILD ADD . /opt/app
 ONBUILD RUN bundle install --without development test
 
+EXPOSE 8080
 ENTRYPOINT ["bundle", "exec", "unicorn", "-c", "./config/unicorn.rb"]
