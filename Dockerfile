@@ -15,7 +15,7 @@ RUN mkdir /opt/app
 ENV RAILS_ENV production
 
 WORKDIR /opt/app
-ONBUILD ADD . /opt/app
+ONBUILD COPY . /opt/app
 ONBUILD RUN bundle install --without development test
 
 EXPOSE 8080
