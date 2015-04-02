@@ -1,0 +1,8 @@
+[template]
+prefix = "/unicorn/SERVICE_NAME"
+src = "unicorn.rb.tmpl"
+dest = "/etc/unicorn/unicorn.rb"
+keys = [
+	"/listen_port",
+	"/worker_processes"
+]
