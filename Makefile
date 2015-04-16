@@ -1,9 +1,10 @@
-CONTAINER=ridecharge/unicorn
+DOCKER_REPO?=ridecharge
+CONTAINER=$(DOCKER_REPO)/unicorn
 
 all: build push
 
 build:
-	docker build -t $(CONTAINER):latest . 
+	sudo docker build -t $(CONTAINER):latest . 
 
 push:
-	docker push $(CONTAINER)
+	sudo docker push $(CONTAINER)

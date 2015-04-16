@@ -1,4 +1,4 @@
-FROM ridecharge/confd
+FROM registry.gocurb.internal:80/confd
 
 RUN apt-get install -y software-properties-common && \
 	apt-add-repository ppa:brightbox/ruby-ng && \
