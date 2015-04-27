@@ -4,7 +4,7 @@ CONTAINER=$(DOCKER_REPO)/unicorn
 all: build push clean
 
 build:
-	docker build -t --no-cache $(CONTAINER):latest . 
+	docker build --no-cache -t $(CONTAINER):latest . 
 
 push:
 	docker push $(CONTAINER)
