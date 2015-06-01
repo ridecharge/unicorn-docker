@@ -16,7 +16,7 @@ ONBUILD RUN mkdir -p /opt/app
 ONBUILD WORKDIR /opt/app
 ONBUILD COPY . /opt/app
 ONBUILD ENV RAILS_ENV test
-ONBUILD RUN bundle install --without development
+ONBUILD RUN bundle install
 ONBUILD RUN bundle exec bundle-audit update
 ONBUILD RUN bundle exec bundle-audit
 ONBUILD RUN bundle exec rubocop
