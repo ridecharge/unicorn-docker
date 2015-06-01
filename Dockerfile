@@ -22,11 +22,16 @@ RUN chown unicorn:unicorn /tmp/unicorn-wrapper.sh
 RUN chmod 0500 /tmp/unicorn-wrapper.sh
 
 RUN gem install bundler
-ONBUILD ENV RAILS_ENV production
 ONBUILD RUN mkdir -p /opt/app
 ONBUILD WORKDIR /opt/app
 ONBUILD COPY . /opt/app
+ONBUILD ENV RAILS_ENV test
 ONBUILD RUN bundle install --without development test
+ONBUILD RUN bundle exec bundle-audit update
+ONBUILD RUN bundle exec bundle-audit
+ONBUILD RUN bundle exec rubocop
+ONBUILD RUN bundle exec brakeman -z -w2
+ONBUILD RUN bundle exec rake rspec SPEC_OPTS="-f d -c"
 ONBUILD RUN chown -R unicorn:unicorn /opt/app
 ONBUILD RUN chmod -R 0770 /opt/app
 ONBUILD USER unicorn
