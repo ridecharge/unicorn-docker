@@ -34,7 +34,6 @@ ONBUILD RUN bundle exec brakeman -z -w2
 ONBUILD RUN bundle exec rake rspec SPEC_OPTS="-f d -c"
 ONBUILD RUN chown -R unicorn:unicorn /opt/app
 ONBUILD RUN chmod -R 0770 /opt/app
-ONBUILD USER unicorn
 
 EXPOSE 8080
 ENTRYPOINT ["/tmp/unicorn-wrapper.sh"]
