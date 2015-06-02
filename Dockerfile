@@ -1,9 +1,9 @@
 FROM registry.gocurb.internal:80/confd
 
-RUN apt-get install -y software-properties-common && \
-	apt-add-repository ppa:brightbox/ruby-ng && \
-	apt-get update && \
-	apt-get install -y \
+RUN apt-get install -y software-properties-common  
+RUN apt-add-repository ppa:brightbox/ruby-ng 
+RUN apt-get update
+RUN apt-get install -y \
 		ruby2.2 \
 		ruby2.2-dev \
 		unicorn \
