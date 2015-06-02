@@ -1,2 +1,2 @@
 listen {{if exists "/listen_port"}}{{ getv "/listen_port" }}{{else}}8080{{end}} 
-worker_processes {{if exists "/worker_processes"}}{{ getv "/worker_processes" }}{{else}}16{{end}} 
+worker_processes {{if exists "/worker_processes"}}{{ getv "/worker_processes" }}{{else}}8{{end}} 
