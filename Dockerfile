@@ -3,9 +3,21 @@ FROM registry.gocurb.internal:80/confd
 RUN apt-get install -y software-properties-common && \
 	apt-add-repository ppa:brightbox/ruby-ng && \
 	apt-get update && \
-	apt-get install -y ruby2.2 ruby2.2-dev unicorn build-essential \
-	git git-core libv8-dev \
-    zlib1g-dev libssl-dev libreadline-dev libyaml-dev libxml2-dev libxslt1-dev curl
+	apt-get install -y \
+		ruby2.2 \
+		ruby2.2-dev \
+		unicorn \
+		build-essential \
+		git \
+		git-core \
+		libv8-dev \
+	    zlib1g-dev \
+	    libssl-dev \
+	    libreadline-dev \
+	    libyaml-dev \
+	    libxml2-dev \
+	    libxslt1-dev \
+	    curl
 
 RUN mkdir /etc/unicorn
 COPY unicorn-wrapper.sh /tmp/unicorn-wrapper.sh
