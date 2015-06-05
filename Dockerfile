@@ -33,6 +33,7 @@ ONBUILD RUN bundle exec bundle-audit update
 ONBUILD RUN bundle exec bundle-audit
 ONBUILD RUN bundle exec rubocop
 ONBUILD RUN bundle exec brakeman -z -w2
+ONBUILD RUN bundle exec rake rspec SPEC_OPTS="-f d -c"
 
 EXPOSE 8080
 ENTRYPOINT ["/tmp/unicorn-wrapper.sh"]
